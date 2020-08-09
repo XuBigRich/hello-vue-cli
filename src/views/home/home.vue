@@ -2,9 +2,21 @@
 	<div>
 		<p>hello world!</p>
 		<!-- 他控制的是主页面的路由渲染 -->
-		<router-link to="out">对照试验页面</router-link>
+		<ul>
+			<li>
+				<router-link to="out">对照试验页面</router-link>
+			</li>
+			<li>
+				<router-link to="/main/user">查看页面作者</router-link>
+			</li>
+			<li>
+				<router-link :to="{name:'home',params:{id:'001'},query:{aaa:'bbb'},path:'/ccc/1'}">Home</router-link>
+			</li>
+			<li>
+				<router-link :to="{path:'/bbb/1'}">redirect</router-link>
+			</li>
+		</ul>
 		<!-- 他控制的是 本页面的路由渲染 -->
-		<router-link to="/main/user">查看页面作者</router-link>
 		<router-view></router-view>
 	</div>
 </template>

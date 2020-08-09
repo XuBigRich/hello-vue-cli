@@ -13,7 +13,7 @@ export default new Router({
 			path: '/main',
 			name: 'Main',
 			component: Main,
-			children:[{
+			children: [{
 				path: 'user',
 				//懒加载
 				component: (resolve) => require(['@/views/user/user'], resolve)
@@ -23,6 +23,27 @@ export default new Router({
 			path: '/out',
 			name: 'out',
 			component: (resolve) => require(['@/views/out/out'], resolve)
+		},
+		{
+			name: 'home',
+			path: '/ccc/:id',
+			alias: '/home', //别名
+			redirect: xxxx => {
+				const {
+					name,
+					params,
+					query,
+					path
+				} = xxxx;
+				console.log(name + " " + params + " " + query + " " + path);
+				if (params.id == '001') {
+					return '/'
+				}
+			}
+		},
+		{
+			path: '/bbb/:id',
+			redirect:'/out'
 		}
 	]
 })
