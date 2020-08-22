@@ -43,7 +43,11 @@ export default new Router({
 		},
 		{
 			path: '/bbb/:id',
-			redirect:'/out'
+			redirect: '/out'
+		},
+		{
+			path: '/es6',
+			component: (resolve) => require(['@/views/es6/es'], resolve)
 		}
 	]
 })

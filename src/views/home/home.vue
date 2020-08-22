@@ -15,6 +15,12 @@
 			<li>
 				<router-link :to="{path:'/bbb/1'}">redirect</router-link>
 			</li>
+			<li>
+				<button @click="req">axios</button>
+			</li>
+			<li>
+				<router-link :to="{path:'/es6'}">es6 js</router-link>
+			</li>
 		</ul>
 		<!-- 他控制的是 本页面的路由渲染 -->
 		<router-view></router-view>
@@ -22,6 +28,32 @@
 </template>
 
 <script>
+	import axios from 'axios'
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		methods: {
+			req() {
+				axios.defaults.baseURL="/api"
+				axios.get('login', {
+						params: {
+							username: 'x',
+							password: '1'
+						},
+						head:"Access-Control-Allow-Origin"
+					})
+					.then(function(response) {
+						console.log(response);
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+			}
+		}
+	}
 </script>
 
 <style>
