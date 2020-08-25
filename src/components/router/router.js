@@ -44,6 +44,28 @@ export default new Router({
 		{
 			path: '/bbb/:id',
 			redirect:'/out'
+		},
+		{
+			path:"/store",
+			component: (resolve) => require(['@/views/vuex/vuex'], resolve)
+		},
+		{
+			path:'/watch',
+			component:(resolve) => require(['@/views/watch/watch'], resolve),
+			children:[
+				{
+					path:"monitor",
+					redirect:'/out'
+				},
+				{
+					path:"out",
+					component:(resolve) => require(['@/views/out/out'], resolve)
+				},
+				{
+					path:"abc",
+					component:(resolve) => require(['@/views/out/out'], resolve)
+				}
+			]
 		}
 	]
 })
